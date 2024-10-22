@@ -1,0 +1,15 @@
+[package]
+name = "distributed_project"
+version = "0.1.0"
+authors = ["Sherpa <pjkfckr@gmail.com>"]
+license = "MIT"
+description = "distributed project"
+repository = "https://github.com/pjkfckr/rust-distributed"
+edition = "2021"
+publish = false
+
+[dependencies]
+rdkafka = "0.36.2"
+tokio = { version = "1.40.0", features = ["full"] }
+serde = { version = "1.0.210", features = ["derive"] }
+serde_json = "1.0.128"
