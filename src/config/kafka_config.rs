@@ -1,4 +1,5 @@
 
+#[warn(dead_code)]
 pub struct KafkaConfig {
     pub brokers: String,
     pub topic: String,
@@ -8,7 +9,7 @@ pub struct KafkaConfig {
 impl KafkaConfig {
     pub fn new() -> Self {
         KafkaConfig {
-            brokers: "localhost:9092".to_string(),
+            brokers: "localhost:29092".to_string(),
             topic: "tasks".to_string(),
             group_id: "distributed_processor".to_string(),
         }
