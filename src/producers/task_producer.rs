@@ -5,6 +5,7 @@ use rdkafka::producer::{FutureProducer, FutureRecord};
 use crate::models::task::Task;
 use crate::config::kafka_config::KafkaConfig;
 
+#[derive(Clone)]
 pub struct TaskProducer {
     producer: FutureProducer,
     topic: String
@@ -22,7 +23,6 @@ impl TaskProducer {
             topic: config.topic.clone()
         }
     }
-    
     pub async fn send(&self, task: &Task) -> Result<(), (KafkaError, OwnedMessage)> {
         let payload = serde_json::to_string(&task).expect("Serialization Failed");
         self.producer.send(
